@@ -14,7 +14,7 @@ st.set_page_config(
     page_title="HealthCare Analytics",
     page_icon="🏥",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="auto"
 )
 
 
@@ -56,12 +56,7 @@ st.markdown("""
         border-radius: 0 24px 24px 0;
     }
 
-    [data-testid="stSidebar"][aria-expanded="false"] {
-        display: block !important;
-        margin-left: 0 !important;
-        transform: none !important;
-        visibility: visible !important;
-    }
+    
 
     [data-testid="stSidebar"] * { color: #cbd5e1; }
 
@@ -566,7 +561,75 @@ st.markdown("""
 [data-testid="stDownloadButton"] button:hover div {
     color: white !important;
 }
+/* =========================================================
+   MOBILE SIDEBAR FIX
+   ========================================================= */
 
+@media (max-width: 768px) {
+
+    /* Let Streamlit control whether sidebar is open or closed */
+    [data-testid="stSidebar"] {
+        min-width: 0 !important;
+        max-width: 85vw !important;
+        width: 85vw !important;
+        border-radius: 0 22px 22px 0;
+    }
+
+    /* Make sidebar content fit smaller screens */
+    [data-testid="stSidebar"] .block-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* Navigation buttons */
+    [data-testid="stSidebar"] .stButton > button {
+        font-size: 14px !important;
+        padding: 10px 12px !important;
+    }
+
+    /* Main content */
+    [data-testid="stMain"] .block-container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* KPI cards */
+    .metric-card,
+    .metric-card-stacked {
+        min-height: 90px !important;
+        padding: 14px !important;
+    }
+
+    /* Smaller hero */
+    .hero-card {
+        padding: 20px !important;
+        border-radius: 16px !important;
+    }
+
+    .hero-title {
+        font-size: 20px !important;
+    }
+
+    .hero-text {
+        font-size: 12px !important;
+    }
+
+    /* Cards */
+    .chart-card,
+    .panel-card {
+        padding: 12px !important;
+        border-radius: 14px !important;
+    }
+
+    /* Tables can scroll horizontally */
+    table.simple-table {
+        min-width: 500px;
+    }
+
+    .panel-card {
+        overflow-x: auto !important;
+    }
+}
 
 </style>
 """, unsafe_allow_html=True)

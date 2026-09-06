@@ -95,8 +95,7 @@ healthcare-patient-analytics/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-└── LICENSE
-```
+
 
 ---
 
