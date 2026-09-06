@@ -20,13 +20,6 @@ st.set_page_config(
 
 # =========================================================
 # HTML RENDER HELPER
-# -----------------------------------------------------------
-# Streamlit's Markdown parser treats any line indented 4+
-# spaces as a code block (before HTML is even considered), so
-# hand-indented f-strings print as literal text instead of
-# rendering. This strips leading whitespace per line, and
-# every "card" is built as ONE string / ONE st.markdown call
-# so open/close <div> tags actually wrap their content.
 # =========================================================
 
 def render(html: str):
@@ -51,12 +44,8 @@ st.markdown("""
 
     [data-testid="stSidebar"] {
         background-color: #0f172a;
-        min-width: 230px !important;
-        max-width: 250px !important;
         border-radius: 0 24px 24px 0;
     }
-
-    
 
     [data-testid="stSidebar"] * { color: #cbd5e1; }
 
@@ -68,42 +57,42 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] .stButton > button {
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    border: 1px solid transparent;
-    color: #cbd5e1;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    margin-bottom: 4px;
-    box-shadow: none;
-    transition: all 0.2s ease;
-}
+        width: 100%;
+        text-align: left;
+        background: transparent;
+        border: 1px solid transparent;
+        color: #cbd5e1;
+        font-weight: 500;
+        font-size: 14px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        margin-bottom: 4px;
+        box-shadow: none;
+        transition: all 0.2s ease;
+    }
 
-/* Hover */
-[data-testid="stSidebar"] .stButton > button:hover {
-    background: rgba(20, 184, 166, 0.12) !important;
-    border-color: rgba(20, 184, 166, 0.25) !important;
-    color: #ffffff !important;
-    transform: translateX(3px);
-}
+    /* Hover */
+    [data-testid="stSidebar"] .stButton > button:hover {
+        background: rgba(20, 184, 166, 0.12) !important;
+        border-color: rgba(20, 184, 166, 0.25) !important;
+        color: #ffffff !important;
+        transform: translateX(3px);
+    }
 
-/* Active page */
-[data-testid="stSidebar"] .stButton > button[kind="primary"] {
-    background: linear-gradient(135deg, #14b8a6, #2563eb) !important;
-    border-color: transparent !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.30);
-    transform: translateX(0);
-}
+    /* Active page */
+    [data-testid="stSidebar"] .stButton > button[kind="primary"] {
+        background: linear-gradient(135deg, #14b8a6, #2563eb) !important;
+        border-color: transparent !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(20, 184, 166, 0.30);
+        transform: translateX(0);
+    }
 
-/* Active page should not move on hover */
-[data-testid="stSidebar"] .stButton > button[kind="primary"]:hover {
-    background: linear-gradient(135deg, #0f766e, #1d4ed8) !important;
-    transform: translateX(0);
-}
+    /* Active page should not move on hover */
+    [data-testid="stSidebar"] .stButton > button[kind="primary"]:hover {
+        background: linear-gradient(135deg, #0f766e, #1d4ed8) !important;
+        transform: translateX(0);
+    }
 
     /* Filter widgets */
     [data-testid="stSidebar"] [data-baseweb="select"] > div {
@@ -172,9 +161,6 @@ st.markdown("""
         position: relative;
     }
 
-    /* Stacked variant: icon on top, then label/value/sub below.
-       Used by the billing-style KPI cards (4 flat sibling divs),
-       as opposed to .metric-card's icon-beside-text row layout. */
     .metric-card-stacked {
         background-color: white;
         border-radius: 16px;
@@ -268,7 +254,7 @@ st.markdown("""
     .panel-title { font-weight: 700; font-size: 14.5px; color: #0f172a; margin-bottom: 12px; }
     .empty-state { color: #94a3b8; font-size: 13px; padding: 14px 4px; text-align: center; }
 
-    /* ---------- CALENDAR STRIP (real buttons, styled) ---------- */
+    /* ---------- CALENDAR STRIP ---------- */
 
     .st-key-cal_strip .stButton > button {
         border-radius: 10px !important;
@@ -318,322 +304,200 @@ st.markdown("""
     hr { border: none; border-top: 1px solid #e2e8f0; margin: 22px 0; }
 
     .main .stButton > button {
-    border-radius: 10px !important;
-    border: none !important;
-    background: linear-gradient(135deg, #14b8a6, #2563eb) !important;
-    color: #ffffff !important;
-    font-weight: 600 !important;
-    font-size: 13px !important;
-}
+        border-radius: 10px !important;
+        border: none !important;
+        background: linear-gradient(135deg, #14b8a6, #2563eb) !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+    }
 
-.main .stButton > button:hover,
-.main .stButton > button:focus,
-.main .stButton > button:active {
-    background: linear-gradient(135deg, #0f766e, #1d4ed8) !important;
-    color: #ffffff !important;
-    border: none !important;
-}
+    .main .stButton > button:hover,
+    .main .stButton > button:focus,
+    .main .stButton > button:active {
+        background: linear-gradient(135deg, #0f766e, #1d4ed8) !important;
+        color: #ffffff !important;
+        border: none !important;
+    }
 
-.main .stDownloadButton > button {
-    border-radius: 10px !important;
-    border: none !important;
-    background: linear-gradient(135deg, #14b8a6, #2563eb) !important;
-    color: #ffffff !important;
-    font-weight: 600 !important;
-    font-size: 13px !important;
-}
+    .main .stDownloadButton > button {
+        border-radius: 10px !important;
+        border: none !important;
+        background: linear-gradient(135deg, #14b8a6, #2563eb) !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+    }
 
-.main .stDownloadButton > button:hover,
-.main .stDownloadButton > button:focus,
-.main .stDownloadButton > button:active {
-    background: linear-gradient(135deg, #0f766e, #1d4ed8) !important;
-    color: #ffffff !important;
-    border: none !important;
-}
-
-    /* ---------- MOBILE BREAKPOINT ---------- */
-
-    @media (max-width: 900px) {
-        [data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
-        [data-testid="stHorizontalBlock"] > div { flex: 1 1 100% !important; width: 100% !important; }
+    .main .stDownloadButton > button:hover,
+    .main .stDownloadButton > button:focus,
+    .main .stDownloadButton > button:active {
+        background: linear-gradient(135deg, #0f766e, #1d4ed8) !important;
+        color: #ffffff !important;
+        border: none !important;
     }
 
     /* ================================
-   CHART VISIBILITY FIX
-   ================================ */
+    CHART VISIBILITY FIX
+    ================================ */
 
-[data-testid="stMain"] .stMarkdown strong,
-[data-testid="stMain"] .stMarkdown p {
-    color: #0f172a !important;
-}
-
-.chart-title {
-    color: #0f172a !important;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 14px;
-}
-
-/* Streamlit bordered containers - this is the ONE rule that
-   makes st.container(border=True) look like our white cards.
-   It applies to every bordered container anywhere in the main
-   area, so any chart/table/panel wrapped this way is consistent. */
-[data-testid="stMain"] [data-testid="stVerticalBlockBorderWrapper"] {
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 16px !important;
-    padding: 18px !important;
-    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
-    margin-bottom: 18px;
-}
-
-.chart-title {
-    color: #0f172a !important;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 14px;
-}
-
-
-/* =========================
-   BILLING KPI COLORS
-   ========================= */
-
-.billing-total {
-    border-left: 4px solid #0f766e;
-}
-
-.billing-average {
-    border-left: 4px solid #2563eb;
-}
-
-.billing-highest {
-    border-left: 4px solid #7c3aed;
-}
-
-.billing-lowest {
-    border-left: 4px solid #f59e0b;
-}
-
-.billing-total .metric-icon {
-    background: #ccfbf1;
-    color: #0f766e;
-}
-
-.billing-average .metric-icon {
-    background: #dbeafe;
-    color: #2563eb;
-}
-
-.billing-highest .metric-icon {
-    background: #ede9fe;
-    color: #7c3aed;
-}
-
-.billing-lowest .metric-icon {
-    background: #fef3c7;
-    color: #d97706;
-}
-
-.metric-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-/* =========================
-   BILLING INSIGHTS
-   ========================= */
-
-.insight-card {
-    padding: 18px;
-    border-radius: 12px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    height: 100%;
-}
-
-.insight-icon {
-    font-size: 22px;
-    margin-bottom: 8px;
-}
-
-.insight-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: #64748b;
-    margin-bottom: 6px;
-}
-
-.insight-value {
-    font-size: 20px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 6px;
-}
-
-.insight-text {
-    font-size: 12px;
-    color: #64748b;
-    line-height: 1.5;
-}
-
-/* =========================
-   PATIENT TABLE
-   ========================= */
-
-[data-testid="stDataFrame"] {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
-}
-/* =========================
-   SIDEBAR NAVIGATION
-   ========================= */
-
-[data-testid="stSidebar"] button {
-    border-radius: 10px;
-    border: none;
-    transition: all 0.2s ease;
-}
-
-[data-testid="stSidebar"] button:focus {
-    outline: 2px solid rgba(20, 184, 166, 0.6);
-    outline-offset: 1px;
-}
-
-
-/* =========================
-   MOBILE RESPONSIVE
-   ========================= */
-
-@media (max-width: 768px) {
-
-    .metric-card {
-        min-height: 80px;
-        padding: 16px;
-    }
-
-    .section-title {
-        font-size: 20px;
-    }
-
-    .section-subtitle {
-        font-size: 13px;
+    [data-testid="stMain"] .stMarkdown strong,
+    [data-testid="stMain"] .stMarkdown p {
+        color: #0f172a !important;
     }
 
     .chart-title {
+        color: #0f172a !important;
         font-size: 16px;
-    }
-}
-
-/* =========================================================
-   BUTTON HOVER FIX
-   ========================================================= */
-
-[data-testid="stButton"] button:hover {
-    background-color: #0f766e !important;
-    color: white !important;
-    border-color: #0f766e !important;
-}
-
-[data-testid="stButton"] button:hover p,
-[data-testid="stButton"] button:hover span,
-[data-testid="stButton"] button:hover div {
-    color: white !important;
-}
-
-
-/* Download buttons */
-[data-testid="stDownloadButton"] button:hover {
-    background-color: #0f766e !important;
-    color: white !important;
-    border-color: #0f766e !important;
-}
-
-[data-testid="stDownloadButton"] button:hover p,
-[data-testid="stDownloadButton"] button:hover span,
-[data-testid="stDownloadButton"] button:hover div {
-    color: white !important;
-}
-/* =========================================================
-   MOBILE SIDEBAR FIX
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* Let Streamlit control whether sidebar is open or closed */
-    [data-testid="stSidebar"] {
-        min-width: 0 !important;
-        max-width: 85vw !important;
-        width: 85vw !important;
-        border-radius: 0 22px 22px 0;
+        font-weight: 800;
+        margin-bottom: 14px;
     }
 
-    /* Make sidebar content fit smaller screens */
-    [data-testid="stSidebar"] .block-container {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-
-    /* Navigation buttons */
-    [data-testid="stSidebar"] .stButton > button {
-        font-size: 14px !important;
-        padding: 10px 12px !important;
-    }
-
-    /* Main content */
-    [data-testid="stMain"] .block-container {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-    }
-
-    /* KPI cards */
-    .metric-card,
-    .metric-card-stacked {
-        min-height: 90px !important;
-        padding: 14px !important;
-    }
-
-    /* Smaller hero */
-    .hero-card {
-        padding: 20px !important;
+    [data-testid="stMain"] [data-testid="stVerticalBlockBorderWrapper"] {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
         border-radius: 16px !important;
+        padding: 18px !important;
+        box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+        margin-bottom: 18px;
     }
 
-    .hero-title {
-        font-size: 20px !important;
+    /* =========================
+    BILLING KPI COLORS
+    ========================= */
+
+    .billing-total { border-left: 4px solid #0f766e; }
+    .billing-average { border-left: 4px solid #2563eb; }
+    .billing-highest { border-left: 4px solid #7c3aed; }
+    .billing-lowest { border-left: 4px solid #f59e0b; }
+
+    .billing-total .metric-icon { background: #ccfbf1; color: #0f766e; }
+    .billing-average .metric-icon { background: #dbeafe; color: #2563eb; }
+    .billing-highest .metric-icon { background: #ede9fe; color: #7c3aed; }
+    .billing-lowest .metric-icon { background: #fef3c7; color: #d97706; }
+
+    .metric-icon {
+        width: 38px; height: 38px; border-radius: 10px; display: flex;
+        align-items: center; justify-content: center; font-size: 18px; margin-bottom: 10px;
     }
 
-    .hero-text {
-        font-size: 12px !important;
+    /* =========================
+    BILLING INSIGHTS
+    ========================= */
+
+    .insight-card {
+        padding: 18px; border-radius: 12px; background: #f8fafc;
+        border: 1px solid #e2e8f0; height: 100%;
+    }
+    .insight-icon { font-size: 22px; margin-bottom: 8px; }
+    .insight-title { font-size: 13px; font-weight: 600; color: #64748b; margin-bottom: 6px; }
+    .insight-value { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+    .insight-text { font-size: 12px; color: #64748b; line-height: 1.5; }
+
+    /* =========================
+    PATIENT TABLE
+    ========================= */
+
+    [data-testid="stDataFrame"] { border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+
+    /* =========================
+    SIDEBAR NAVIGATION
+    ========================= */
+
+    [data-testid="stSidebar"] button {
+        border-radius: 10px; border: none; transition: all 0.2s ease;
     }
 
-    /* Cards */
-    .chart-card,
-    .panel-card {
-        padding: 12px !important;
-        border-radius: 14px !important;
+    [data-testid="stSidebar"] button:focus {
+        outline: 2px solid rgba(20, 184, 166, 0.6);
+        outline-offset: 1px;
     }
 
-    /* Tables can scroll horizontally */
-    table.simple-table {
-        min-width: 500px;
+/* =========================================================
+    RESPONSIVE BREAKPOINTS (MOBILE FIX)
+    ========================================================= */
+
+    @media (max-width: 900px) {
+        /* Grid items full width on mobile */
+        [data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
+        [data-testid="stHorizontalBlock"] > div { flex: 1 1 100% !important; width: 100% !important; }
+
+        /* Streamlit main content area padding fix */
+        [data-testid="stMain"] .block-container {
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+            max-width: 100% !important;
+        }
+
+        /* Typography adjustments */
+        .section-title { font-size: 20px; }
+        .section-subtitle { font-size: 13px; }
+        .chart-title { font-size: 16px; }
+
+        /* Card responsiveness */
+        .metric-card, .metric-card-stacked {
+            min-height: 90px !important;
+            padding: 14px !important;
+        }
+
+        .hero-card {
+            padding: 20px !important;
+            border-radius: 16px !important;
+        }
+
+        .chart-card, .panel-card {
+            padding: 12px !important;
+            border-radius: 14px !important;
+            overflow-x: auto !important;
+        }
+
+        table.simple-table { min-width: 500px; }
     }
 
-    .panel-card {
-        overflow-x: auto !important;
-    }
-}
+/* =========================================================
+    SIDEBAR TOGGLE BUTTON (FORCE DARK CONTRAST)
+    ========================================================= */
 
+    /* 1. Target Header Action Bar Container & Toggle Buttons */
+    header[data-testid="stHeader"] button,
+    [data-testid="stSidebarCollapseButton"] button,
+    [data-testid="stSidebarExpandButton"] button,
+    [data-testid="stSidebarNavSeparator"] + button,
+    button[aria-label="Toggle sidebar"],
+    button[aria-label="Close sidebar"],
+    button[data-testid="baseButton-header"] {
+        background-color: #0f172a !important; /* Dark solid base */
+        color: #ffffff !important;            /* White arrow icon */
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2) !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    /* 2. Target SVG Icons Inside Toggle Buttons */
+    header[data-testid="stHeader"] button svg,
+    [data-testid="stSidebarCollapseButton"] button svg,
+    [data-testid="stSidebarExpandButton"] button svg,
+    button[aria-label="Toggle sidebar"] svg,
+    button[data-testid="baseButton-header"] svg {
+        fill: #ffffff !important;
+        stroke: #ffffff !important;
+        color: #ffffff !important;
+    }
+
+    /* 3. Hover Effect */
+    header[data-testid="stHeader"] button:hover,
+    [data-testid="stSidebarCollapseButton"] button:hover,
+    [data-testid="stSidebarExpandButton"] button:hover,
+    button[aria-label="Toggle sidebar"]:hover {
+        background-color: #1e293b !important;
+        border-color: #14b8a6 !important;
+        transform: scale(1.08) !important;
+    }
 </style>
 """, unsafe_allow_html=True)
-
 
 # =========================================================
 # LOAD DATA (cached, so filters/nav don't re-read the file)
